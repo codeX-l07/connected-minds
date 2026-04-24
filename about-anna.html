@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>About Me | Connected Minds</title>
+  <!-- Google Fonts + Font Awesome -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #0a0c10;
+      color: #eef2ff;
+      scroll-behavior: smooth;
+      line-height: 1.5;
+    }
+
+    /* container */
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* section spacing */
+    section {
+      padding: 5rem 0;
+      border-bottom: 1px solid rgba(79, 147, 255, 0.15);
+    }
+
+    .section-tag {
+      font-size: 0.85rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-weight: 600;
+      color: #5fc3ff;
+      margin-bottom: 1rem;
+      display: inline-block;
+      border-left: 3px solid #5fc3ff;
+      padding-left: 12px;
+    }
+
+    .section-title {
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      font-weight: 700;
+      margin-bottom: 2rem;
+      background: linear-gradient(135deg, #ffffff, #7fb4ff);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    /* ===== HERO / FIRST PAGE: ABOUT SELF WITH PICTURE ===== */
+    .hero-about {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background: linear-gradient(145deg, #0e121b 0%, #07090e 100%);
+      padding: 6rem 0;
+    }
+    .about-grid {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 3rem;
+      justify-content: space-between;
+    }
+    .about-text {
+      flex: 1.2;
+      min-width: 280px;
+    }
+    .about-text .greeting {
+      font-size: 0.9rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #5fc3ff;
+      font-weight: 600;
+      margin-bottom: 0.8rem;
+    }
+    .about-text h1 {
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1.2rem;
+      background: linear-gradient(135deg, #FFFFFF 0%, #9bc5ff 100%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+    .about-text p {
+      font-size: 1rem;
+      color: #cdd9ff;
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+    .about-image {
+      flex: 0.9;
+      display: flex;
+      justify-content: center;
+    }
+    .profile-pic {
+      width: 280px;
+      height: 280px;
+      background: linear-gradient(135deg, #2b6eff, #7c3aed);
+      border-radius: 38% 62% 55% 45% / 45% 42% 58% 55%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      box-shadow: 0 25px 40px -12px rgba(43, 110, 255, 0.3);
+      transition: 0.3s;
+      border: 2px solid rgba(79, 147, 255, 0.3);
+    }
+    .profile-pic {
+      width: 280px;
+      height: 280px;
+      background: linear-gradient(135deg, #2b6eff, #7c3aed);
+      border-radius: 38% 62% 55% 45% / 45% 42% 58% 55%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      box-shadow: 0 25px 40px -12px rgba(43, 110, 255, 0.3);
+      transition: 0.3s;
+      border: 2px solid rgba(79, 147, 255, 0.3);
+    }
+    /* Add this to your styles */
+.image-row {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 2rem 0;
+}
+
+.profile-pic-1 {
+  width: 280px;
+  height: 280px;
+  background: linear-gradient(135deg, #2b6eff, #7c3aed);
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: 0 25px 40px -12px rgba(43, 110, 255, 0.3);
+  transition: 0.3s;
+  border: 2px solid rgba(79, 147, 255, 0.3);
+}
+
+.profile-pic-1 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+    .profile-pic img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .info-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-top: 1.5rem;
+    }
+    .info-tags span {
+      background: rgba(43, 110, 255, 0.15);
+      padding: 0.3rem 1rem;
+      border-radius: 40px;
+      font-size: 0.8rem;
+      border: 1px solid rgba(79, 147, 255, 0.3);
+    }
+    .scroll-down-hint {
+      text-align: center;
+      margin-top: 3rem;
+      font-size: 0.85rem;
+      color: #7a8bbf;
+      animation: bounceSoft 2s infinite;
+    }
+    @keyframes bounceSoft {
+      0%,100%{ transform: translateY(0);}
+      50%{ transform: translateY(8px);}
+    }
+
+    /* ===== DAILY COMMUNICATION ===== */
+    .daily-comm {
+      background: #0a0c10;
+    }
+    .video-card {
+      background: rgba(18, 25, 45, 0.5);
+      backdrop-filter: blur(8px);
+      border-radius: 1.5rem;
+      overflow: hidden;
+      border: 1px solid rgba(79, 147, 255, 0.2);
+      transition: 0.2s;
+    }
+    .video-container {
+      position: relative;
+      width: 100%;
+      background: #000;
+    }
+    .video-container video {
+      width: 100%;
+      display: block;
+      aspect-ratio: 16 / 9;
+      object-fit: cover;
+    }
+    .video-desc {
+      padding: 1.5rem;
+    }
+    .video-desc h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: #ffffff;
+    }
+    .video-desc p {
+      color: #b9c8ff;
+    }
+
+    /* ===== HOBBIES & TALENTS: phone-sized videos grid ===== */
+    .hobbies-section {
+      background: #0e121b;
+    }
+    .hobbies-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: center;
+    }
+    .hobby-card {
+      background: rgba(18, 25, 45, 0.6);
+      backdrop-filter: blur(8px);
+      border-radius: 1.5rem;
+      width: 280px;
+      overflow: hidden;
+      border: 1px solid rgba(79, 147, 255, 0.2);
+      transition: 0.25s ease;
+    }
+    .hobby-card:hover {
+      transform: translateY(-6px);
+      border-color: #2b6eff;
+      box-shadow: 0 12px 28px rgba(43, 110, 255, 0.2);
+    }
+    /* phone size video wrapper */
+    .phone-video {
+      background: #000;
+      width: 100%;
+      aspect-ratio: 9 / 16;
+      max-height: 480px;
+    }
+    .phone-video video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .hobby-card .info {
+      padding: 1rem;
+      text-align: center;
+    }
+    .hobby-card h4 {
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: #ffffff;
+    }
+    .hobby-card p {
+      font-size: 0.85rem;
+      color: #b9c8ff;
+      margin-top: 0.3rem;
+    }
+
+    /* ===== PROFESSIONAL DEVELOPMENT SLIDER ===== */
+    .dev-section {
+      background: #0a0c10;
+    }
+    .slider-container {
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      display: flex;
+      gap: 1.5rem;
+      padding: 1rem 0.25rem 2rem 0.25rem;
+      scrollbar-width: thin;
+    }
+    .slider-container::-webkit-scrollbar {
+      height: 6px;
+      background: #1e293b;
+      border-radius: 10px;
+    }
+    .slider-container::-webkit-scrollbar-thumb {
+      background: #2b6eff;
+      border-radius: 10px;
+    }
+    .slide-card {
+      flex: 0 0 300px;
+      scroll-snap-align: start;
+      background: rgba(18, 25, 45, 0.6);
+      backdrop-filter: blur(8px);
+      border-radius: 1.5rem;
+      overflow: hidden;
+      border: 1px solid rgba(79, 147, 255, 0.2);
+      transition: 0.2s;
+    }
+    .slide-card:hover {
+      border-color: #2b6eff;
+    }
+    .slide-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+    .slide-card .slide-content {
+      padding: 1rem;
+    }
+    .slide-card .badge {
+      background: rgba(43, 110, 255, 0.2);
+      color: #5fc3ff;
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.2rem 0.7rem;
+      border-radius: 30px;
+      display: inline-block;
+      margin-bottom: 0.5rem;
+    }
+    .slide-card h4 {
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+      color: #ffffff;
+    }
+    .slide-card p {
+      font-size: 0.8rem;
+      color: #b9c8ff;
+    }
+
+    /* ===== STUDENT GOAL ===== */
+    .goal-section {
+      background: linear-gradient(145deg, #0e121b 0%, #07090e 100%);
+    }
+    .goal-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      align-items: center;
+    }
+    .goal-text {
+      flex: 1;
+    }
+    .goal-text h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: #ffffff;
+    }
+    .goal-list {
+      list-style: none;
+      margin-top: 1rem;
+    }
+    .goal-list li {
+      margin: 1rem 0;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #cdd9ff;
+    }
+    .goal-list i {
+      color: #5fc3ff;
+      font-size: 1.2rem;
+      width: 28px;
+    }
+    .goal-icon {
+      flex: 0.7;
+      text-align: center;
+      font-size: 5rem;
+      color: #5fc3ff;
+    }
+
+    /* ===== REFLECTIONS ===== */
+    .reflections {
+      background: #07090e;
+    }
+    .reflections-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    .reflection-card {
+      background: rgba(18, 25, 45, 0.5);
+      backdrop-filter: blur(8px);
+      border-radius: 1.5rem;
+      padding: 1.5rem;
+      border-left: 4px solid #5fc3ff;
+      border: 1px solid rgba(79, 147, 255, 0.2);
+    }
+    .reflection-card p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #cdd9ff;
+    }
+    .reflection-card i {
+      color: #5fc3ff;
+    }
+    .ref-date {
+      font-size: 0.75rem;
+      color: #7a8bbf;
+      margin-top: 0.8rem;
+    }
+
+    /* footer */
+    .footer-note {
+      text-align: center;
+      padding: 2rem;
+      background: #05080f;
+      color: #5f73a1;
+      font-size: 0.8rem;
+      border-top: 1px solid rgba(79, 147, 255, 0.15);
+    }
+
+    @media (max-width: 780px) {
+      .container {
+        padding: 0 1.2rem;
+      }
+      .about-grid {
+        flex-direction: column-reverse;
+        text-align: center;
+      }
+      .info-tags {
+        justify-content: center;
+      }
+      .goal-container {
+        flex-direction: column;
+        text-align: center;
+      }
+      .goal-list li {
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- FIRST PAGE: ABOUT SELF WITH PICTURE -->
+  <section class="hero-about" id="about-self">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-text">
+          <div class="greeting"><i class="fas fa-waveform"></i> // ABOUT ME</div>
+          <h1>Hi, I'm Anna Katrina M. Buquid<br><span style="font-size: 0.8em;">21 years old</span></h1>
+          <p>from Bato, Camarines Sur. An extrovert type of girl who's taking Bachelor of Science in Office Administration in Camarines Sur Polytechnic Colleges. A girl who loves to doing things alone and also loves traveling especially in a peaceful place.
+I like matca, other sweets food, and I don't like people who pretend to like me.</p>
+          <div class="info-tags">
+            <span><i class="fas fa-laptop-code"></i> BSOA 3rd Year</span>
+            
+          </div>
+        </div>
+        <div class="about-image">
+          <div class="profile-pic">
+            <!-- Replace with your actual image -->
+            <img src="images/ana.png">
+          </div>
+        </div>
+      </div>
+      <div class="scroll-down-hint">
+        <i class="fas fa-chevron-down"></i> scroll to explore
+      </div>
+    </div>
+  </section>
+
+  <!-- DAILY COMMUNICATION (video + description) -->
+  <section class="daily-comm" id="daily">
+  <div class="container">
+    <div class="section-tag">01 // Daily communication</div>
+    
+   
+    <!-- Images arranged in horizontal row -->
+    <div class="image-row">
+      <div class="profile-pic-1">
+        <img src="images/ana-digital-communication-1.JPEG" alt="Digital connection 1">
+      </div>
+      <div class="profile-pic-1">
+        <img src="images/ana-digital-communication-2.JPEG" alt="Digital connection 2">
+      </div>
+      <div class="profile-pic-1">
+        <img src="images/ana-digital-communication-3.jpeg" alt="Digital connection 3">
+      </div>
+    </div>
+
+    <div class="video-desc">
+      <h3>Digital connection</h3>
+      <p>Technology plays a big role in my daily communication. I use apps like Messenger and Google meet to communicate with my classmates, teachers, and family. These tools make communication faster and more convenient.</p>
+    </div>
+  </div>
+</section>
+
+  <!-- HOBBIES & TALENTS (phone-sized videos) -->
+  <section class="hobbies-section" id="hobbies">
+    <div class="container">
+      <div class="section-tag">02 // hobbies & talents</div>
+      <h3 style="justify-self: center; padding-bottom: 20px;">I am a person who enjoys expressing myself through dancing and reading. Dancing allows me to show my emotions and creativity, while reading Wattpad stories helps me relax and explore different ideas and perspectives.</h3>
+
+      <div class="hobbies-grid">
+        
+        <div class="hobby-card">
+          <div class="phone-video">
+            <img src="images/ana-hobbies-1.JPG" alt="anna-hobbies" style="height: 70%; width:100%; margin-top: 70px;">
+          </div>
+          <div class="info">
+            <h4>🛹 Reading Books</h4>
+            
+          </div>
+        </div>
+         <div class="hobby-card">
+          <div class="phone-video">
+            <video autoplay muted loop playsinline>
+              <source src="videos/ana1.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="info">
+            <h4>🎵 dancing</h4>
+          
+          </div>
+        </div>
+        <div class="hobby-card">
+          <div class="phone-video">
+            <video autoplay muted loop playsinline>
+              <source src="videos/ana2.mp4" type="video/mp4">
+            </video>
+          </div>
+          <div class="info">
+            <h4>🎨 dancing</h4>
+            
+          </div>
+        </div>
+        <div class="hobby-card">
+          <div class="phone-video">
+            <img src="images/ana-hobbies-2.JPG" alt="anna-hobbies" style="height: 70%; width:100%; margin-top: 70px;">
+          </div>
+          <div class="info">
+            <h4>🛹 Reading Books</h4>
+            
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- PROFESSIONAL DEVELOPMENT SLIDE -->
+  <section class="dev-section" id="development">
+    <div class="container">
+      <div class="section-tag">03 // professional development</div>
+      <div class="slider-container">
+        <div class="slide-card">
+          <img src="images/ana-prof-1.jpeg" >
+          <div class="slide-content">
+            <span class="badge">MAY 5 2025</span>
+            <h4>The Corporate Fashion Show</h4>
+           
+          </div>
+        </div>
+        <div class="slide-card">
+          <img src="images/ana-prof-2.jpeg" >
+          <div class="slide-content">
+           <span class="badge">APRIL 2025</span>
+            <h4>3RD Regional Congress</h4>
+          </div>
+        </div>
+        <div class="slide-card">
+          <img src="images/ana-prof-3.jpeg" >
+          <div class="slide-content">
+            <span class="badge">Educational Trip</span>
+            <h4>Google AI Campus Visit</h4>
+            <p>Tech immersion & networking</p>
+          </div>
+        </div>
+       
+    </div>
+    <div class="video-desc">
+      <h3>Through these experiences</h3>
+      <p> I improved my communication and interpersonal skills. I also became more aware of how technology supports office tasks and professional events. Overall, these activities helped me grow and become more prepared for future work environments.</p>
+    </div>
+  </section>
+
+  <!-- STUDENT GOAL -->
+  <section class="goal-section" id="goals">
+    <div class="container">
+      <div class="section-tag">04 // student goal</div>
+      <div class="goal-container">
+        <div class="goal-text">
+          <h3>My Goal as an Office Administration student</h3>
+          <ul class="goal-list">
+            <li><i class="fas fa-check-circle"></i> is to develop strong organizational, communication, and technical skills that will help me become an effective and professional office assistant in the future. I aim to improve my ability to handle documents, manage time efficiently, and use digital tools such as Microsoft Office and other administrative systems.</li>
+            
+          </ul>
+        </div>
+        <div class="goal-icon">
+          <i class="fas fa-graduation-cap"></i>
+          <i class="fas fa-rocket" style="margin-left: 1rem;"></i>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- LAST PAGE: REFLECTIONS -->
+  <section class="reflections" id="reflections">
+    <div class="container">
+      <div class="section-tag">05 // reflections</div>
+      <div class="reflections-grid">
+        <div class="reflection-card">
+          <p><i class="fas fa-quote-left" style="margin-right: 8px;"></i> Reflection dito.</p>
+          <div class="ref-date">— October 2024, after AI seminar</div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <div class="footer-note">
+    <i class="fas fa-heart" style="color: #5fc3ff;"></i> Connected Minds — Our Life in the IT Era • personal chronicle
+  </div>
+
+</body>
+</html>
