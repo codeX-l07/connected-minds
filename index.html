@@ -1,586 +1,218 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Connected Minds | Our Life in the IT Era - Team</title>
+  <title>About Me | Connected Minds</title>
+
   <!-- Google Fonts + Font Awesome -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
 
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #636465;
-      color: #eef2ff;
-      scroll-behavior: smooth;
-      line-height: 1.5;
-    }
-
-    /* ---------- HERO SECTION (video background) ---------- */
-    .hero {
-      position: relative;
-      width: 100%;
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      overflow: hidden;
-      isolation: isolate;
-    }
-
-    .hero-video {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: 0;
-      filter: brightness(0.6) saturate(1.1);
-    }
-
-    .hero::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at center, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.7) 100%);
-      z-index: 1;
-      pointer-events: none;
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 950px;
-      padding: 2rem;
-      animation: fadeInUp 1.2s cubic-bezier(0.2, 0.9, 0.4, 1.1);
-    }
-
-    .hero-content h1 {
-      font-size: clamp(2.5rem, 8vw, 5rem);
-      font-weight: 800;
-      letter-spacing: -0.02em;
-      background: linear-gradient(135deg, #FFFFFF 0%, #9bc5ff 100%);
-      background-clip: text;
-      -webkit-background-clip: text;
-      color: transparent;
-      margin-bottom: 1.2rem;
-      text-shadow: 0 2px 20px rgba(0,0,0,0.2);
-    }
-
-    .hero-content p {
-      font-size: clamp(1rem, 3vw, 1.35rem);
-      font-weight: 400;
-      color: rgba(255,255,245,0.92);
-      max-width: 700px;
-      margin: 0 auto;
-      backdrop-filter: blur(2px);
-    }
-
-    .scroll-indicator {
-      position: absolute;
-      bottom: 30px;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 3;
-      font-size: 1.8rem;
-      color: white;
-      animation: bounce 2s infinite;
-      cursor: pointer;
-      background: rgba(0,0,0,0.4);
-      width: 44px;
-      height: 44px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      backdrop-filter: blur(4px);
-      transition: 0.2s;
-    }
-
-    .scroll-indicator:hover {
-      background: rgba(0,0,0,0.7);
-      transform: translateX(-50%) scale(1.05);
-    }
-
-    /* ---------- OVERVIEW SECTION ---------- */
-    .overview-section {
-      min-height: 90vh;
-      background: linear-gradient(145deg, #07090e 0%, #29292b 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 5rem 2rem;
-    }
-
-    .overview-container {
-      max-width: 1300px;
-      width: 100%;
-      margin: 0 auto;
-    }
-
-    .section-tag {
-      font-size: 0.9rem;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      font-weight: 600;
-      color: #5fc3ff;
-      margin-bottom: 1rem;
-      display: inline-block;
-      border-left: 3px solid #5fc3ff;
-      padding-left: 12px;
-    }
-
-    .overview-grid {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 3rem;
-      margin-top: 2rem;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .overview-text {
-      flex: 1.2;
-      min-width: 280px;
-    }
-
-    .overview-text h2 {
-      font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 700;
-      margin-bottom: 1.5rem;
-      background: linear-gradient(to right, #f0f9ff, #b9dcff);
-      background-clip: text;
-      -webkit-background-clip: text;
-      color: transparent;
-    }
-
-    .overview-text p {
-      font-size: 1.1rem;
-      line-height: 1.6;
-      color: #cdd9ff;
-      margin-bottom: 1.5rem;
-    }
-
-    .highlight-list {
-      list-style: none;
-      margin: 2rem 0;
-    }
-
-    .highlight-list li {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 1rem;
-      font-size: 1rem;
-    }
-
-    .highlight-list li i {
-      color: #4cc9ff;
-      width: 28px;
-      font-size: 1.3rem;
-    }
-
-    /* ---------- BUTTON (triggers member page) ---------- */
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 12px;
-      background: #2b6eff;
-      border: none;
-      padding: 0.9rem 2.2rem;
-      font-size: 1rem;
-      font-weight: 600;
-      font-family: inherit;
-      color: white;
-      border-radius: 48px;
-      cursor: pointer;
-      transition: all 0.25s ease;
-      box-shadow: 0 6px 14px rgba(43, 110, 255, 0.25);
-      text-decoration: none;
-      letter-spacing: 0.3px;
-    }
-
-    .btn i {
-      transition: transform 0.2s;
-    }
-
-    .btn:hover {
-      background: #1a56e0;
-      transform: translateY(-3px);
-      box-shadow: 0 14px 28px rgba(43, 110, 255, 0.4);
-    }
-
-    .btn:hover i {
-      transform: translateX(6px);
-    }
-
-    .overview-visual {
-      flex: 0.9;
-      min-width: 260px;
-      background: rgba(255,255,255,0.03);
-      backdrop-filter: blur(12px);
-      border-radius: 2.5rem;
-      padding: 1.8rem;
-      border: 1px solid rgba(79, 147, 255, 0.2);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-    }
-
-    .visual-icon-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1.8rem;
-      text-align: center;
-    }
-
-    .visual-card {
-      background: rgba(20, 30, 55, 0.6);
-      border-radius: 1.6rem;
-      padding: 1.2rem 0.8rem;
-      transition: 0.2s;
-    }
-
-    .visual-card i {
-      font-size: 2.5rem;
-      color: #5fc3ff;
-      margin-bottom: 0.8rem;
-      display: inline-block;
-    }
-
-    .visual-card h4 {
-      font-size: 1rem;
-      font-weight: 500;
-    }
-
-    /* ---------- MEMBERS PAGE (AS A TAG/CONTAINER) ---------- */
-    /* This is the "member container" - it acts like a page/section tag */
-    .members-page {
-      background: #05080f;
-      padding: 5rem 2rem;
-      width: 100%;
-      border-top: 1px solid rgba(79, 147, 255, 0.3);
-      border-bottom: 1px solid rgba(79, 147, 255, 0.2);
-      scroll-margin-top: 20px;
-    }
-
-    .members-container {
-      max-width: 1300px;
-      margin: 0 auto;
-    }
-
-    .members-header {
-      text-align: center;
-      margin-bottom: 3.5rem;
-    }
-
-    .members-header h2 {
-      font-size: clamp(2rem, 4vw, 2.8rem);
-      font-weight: 700;
-      background: linear-gradient(135deg, #ffffff, #7fb4ff);
-      background-clip: text;
-      -webkit-background-clip: text;
-      color: transparent;
-      margin-bottom: 0.8rem;
-    }
-
-    .members-header p {
-      color: #9aaec9;
-      font-size: 1.1rem;
-    }
-
-    .member-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 2rem;
-    }
-
-    /* member card style (clean and modern) */
-    .member-card {
-      background: rgba(18, 25, 45, 0.7);
-      backdrop-filter: blur(6px);
-      border-radius: 2rem;
-      padding: 1.8rem 1.5rem;
-      width: 260px;
-      text-align: center;
-      transition: all 0.3s ease;
-      border: 1px solid rgba(79, 147, 255, 0.2);
-      box-shadow: 0 12px 28px rgba(0,0,0,0.3);
-    }
-
-    .member-card:hover {
-      transform: translateY(-8px);
-      border-color: #2b6eff;
-      background: rgba(28, 40, 70, 0.8);
-      box-shadow: 0 24px 36px rgba(0,0,0,0.4);
-    }
-
-    .member-avatar {
-      width: 110px;
-      height: 110px;
-      background: linear-gradient(145deg, #1f2a48, #0f1428);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 1.2rem;
-      font-size: 3.2rem;
-      color: #6ea8fe;
-      border: 2px solid #3c7eff;
-      box-shadow: 0 8px 18px rgba(0,0,0,0.3);
-    }
-
-    .member-card h3 {
-      font-size: 1.4rem;
-      font-weight: 700;
-      margin-bottom: 0.35rem;
-      color: #f0f4ff;
-    }
-
-    .member-role {
-      font-size: 0.85rem;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      font-weight: 600;
-      color: #7cb9ff;
-      margin-bottom: 0.7rem;
-    }
-
-    .member-bio {
-      font-size: 0.85rem;
-      color: #b9c8ff;
-      margin: 0.8rem 0;
-      line-height: 1.4;
-    }
-
-    .member-social {
-      display: flex;
-      justify-content: center;
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-
-    .member-social a {
-      color: #b7ceff;
-      font-size: 1.2rem;
-      transition: 0.2s;
-    }
-
-    .member-social a:hover {
-      color: white;
-      transform: scale(1.1);
-    }
-
-    .back-to-top {
-      text-align: center;
-      margin-top: 3.5rem;
-    }
-
-    .back-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(43, 110, 255, 0.15);
-      padding: 0.7rem 1.8rem;
-      border-radius: 40px;
-      color: #aac9ff;
-      text-decoration: none;
-      font-weight: 500;
-      transition: 0.2s;
-      border: 1px solid rgba(79, 147, 255, 0.3);
-    }
-
-    .back-link:hover {
-      background: #2b6eff;
-      color: white;
-      border-color: transparent;
-    }
-
-    .footer-note {
-      text-align: center;
-      margin-top: 2rem;
-      padding-top: 1.5rem;
-      border-top: 1px solid rgba(100, 150, 255, 0.15);
-      font-size: 0.8rem;
-      color: #5f73a1;
-    }
-
-    /* animations */
-    @keyframes fadeInUp {
-      0% { opacity: 0; transform: translateY(40px);}
-      100% { opacity: 1; transform: translateY(0);}
-    }
-
-    @keyframes bounce {
-      0%, 100% { transform: translateX(-50%) translateY(0);}
-      50% { transform: translateX(-50%) translateY(12px);}
-    }
-
-    @media (max-width: 750px) {
-      .overview-grid { flex-direction: column; text-align: center; }
-      .highlight-list li { justify-content: center; }
-      .btn { margin: 0 auto; }
-      .member-card { width: 260px; }
-    }
-  </style>
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
-  <!-- HERO SECTION (video background + Connected Minds text) -->
-  <section class="hero" id="home">
-    <video class="hero-video" autoplay muted loop playsinline poster="">
-      <!-- high-quality abstract digital connection / IT era stock video from mixkit (royalty-free) -->
-      <source src="https://media.istockphoto.com/id/1985020815/video/happy-laptop-and-typing-business-man-bank-consultant-or-admin-worker-smile-for-research.mp4?b=1&s=192_srp&k=20&c=_zvUE3R1yM7aU_SaOSri0gEUzhvdeKuDdJ-9Wth4ZB8=" type="video/mp4">
-      <!-- fallback -->
-    </video>
-    <div class="hero-content">
-      <h1>Connected Minds:<br>Our Life in the IT Era</h1>
-      <p>Exploring the intersection of technology, humanity, and digital evolution — where innovation meets everyday reality.</p>
-    </div>
-    <div class="scroll-indicator" id="scrollDownBtn" aria-label="Scroll to overview">
-      <i class="fas fa-chevron-down"></i>
-    </div>
-  </section>
-
-  <!-- OVERVIEW SECTION (with button) -->
-  <section class="overview-section" id="overview">
-    <div class="overview-container">
-      
-      <div class="overview-grid">
-        <div class="overview-text">
-          <h2>Welcome</h2>
-          <p>
-            This website showcases our learning, experiences, and outputs in the subject Living in the IT Era. As a group, we explored how technology affects our daily communication, hobbies, and professional development. This portfolio reflects our growth, creativity, and understanding of modern digital tools.
-
-          </p>
-          <p>
-            This portfolio captures key insights about smart infrastructures, data-driven lifestyles, 
-            and the collaborative future we're co-creating. Get to know the brilliant minds behind this vision.
-          </p>
+  <!-- FIRST PAGE: ABOUT SELF -->
+  <section class="hero-about" id="about-self">
+    <div class="container">
+      <div class="about-grid">
+        
+        <div class="about-text">
+          <div class="greeting"><i class="fas fa-waveform"></i> // ABOUT ME</div>
+          <h1>Hi, I'm Manlapaz, Sophia Joy<br><span style="font-size: 0.8em;">21 years old</span></h1>
           
-          <!-- BUTTON: after clicking, it will proceed to MEMBER PAGE (member container) -->
-          <a href="members.html" target="_self" class="btn" id="goToMemberBtn"><span>Meet our team</span> <i class="fas fa-users"></i></a>
-        </div>
-        <div class="overview-visual">
-          <div class="visual-icon-grid">
-            <div class="visual-card"><i ></i><h4>Communication</h4></div>
-            <div class="visual-card"><i ></i><h4>Growth</h4></div>
-            <div class="visual-card"><i ></i><h4>creativity</h4></div>
-            <div class="visual-card"><i ></i><h4>Learning</h4></div>
+          <p>
+            from Gabon, Polangui Albay. I have a boyfriend soon to be my Husband. 
+            I’m an ambivert who likes going on adventure with my friends but also value my “me” time. 
+            As I get older, I like more peaceful environments now versus loud ones. 
+            Quality time, physical touch, and words of affirmation are my top three love language. 
+            I also love matcha and iced coffee “Spanish latte”.
+          </p>
+
+          <div class="info-tags">
+            <span><i class="fas fa-laptop-code"></i> BSOA 3rd Year</span>
           </div>
-          <div class="footer-note"><i class="fas fa-code-branch"></i>  IT Era — collective intelligence</div>
         </div>
+
+        <div class="about-image">
+          <div class="profile-pic">
+            <img src="images/sophia.jpg">
+          </div>
+        </div>
+
+      </div>
+
+      <div class="scroll-down-hint">
+        <i class="fas fa-chevron-down"></i> scroll to explore
       </div>
     </div>
   </section>
 
+  <!-- DAILY COMMUNICATION -->
+  <section class="daily-comm" id="daily">
+    <div class="container">
+      <div class="section-tag">01 // Daily communication</div>
 
-  <script>
-    (function() {
-      // 1. Smooth scroll from hero indicator to overview section
-      const scrollBtn = document.getElementById('scrollDownBtn');
-      const overviewSection = document.getElementById('overview');
-      if (scrollBtn && overviewSection) {
-        scrollBtn.addEventListener('click', () => {
-          overviewSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        });
-      }
+      <div class="image-row">
+        <div class="profile-pic-1">
+          <img src="images/pia-daily-communication-1.PNG">
+        </div>
+        <div class="profile-pic-1">
+          <img src="images/pia-daily-communication-2.PNG">
+        </div>
+        <div class="profile-pic-1">
+          <img src="images/pia-daily-communication.png">
+        </div>
+      </div>
 
-      // 2. THE MAIN REQUIREMENT: after clicking the button -> proceed to members page / member container
-      const memberBtn = document.getElementById('goToMemberBtn');
-      const membersContainer = document.getElementById('membersContainer');
-      
-      if (memberBtn && membersContainer) {
-        memberBtn.addEventListener('click', (e) => {
-          e.preventDefault();
-          // smoothly scroll to the members container (tag/section)
-          membersContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          // Optional: add a little highlight effect to show the transition
-          membersContainer.style.transition = 'background 0.4s ease';
-          membersContainer.style.background = '#0c1120';
-          setTimeout(() => {
-            membersContainer.style.background = '';
-          }, 600);
-        });
-      }
+      <div class="video-desc">
+        <h3>Digital connection</h3>
+        <p>
+          Communication is the heart of every relationship. I use apps like Messenger, Instagram, 
+          and Google Meet to communicate with classmates, professors, family, and loved ones. 
+          These tools make communication faster and easier.
+        </p>
+      </div>
+    </div>
+  </section>
 
-      // 3. Video fallback if video fails to load (graceful)
-      const heroVideo = document.querySelector('.hero-video');
-      if (heroVideo) {
-        heroVideo.addEventListener('error', () => {
-          const hero = document.querySelector('.hero');
-          if (hero && !hero.querySelector('.fallback-bg')) {
-            hero.style.background = '#0b0e1a';
-            const fallbackDiv = document.createElement('div');
-            fallbackDiv.className = 'fallback-bg';
-            fallbackDiv.style.position = 'absolute';
-            fallbackDiv.style.top = '0';
-            fallbackDiv.style.left = '0';
-            fallbackDiv.style.width = '100%';
-            fallbackDiv.style.height = '100%';
-            fallbackDiv.style.background = 'radial-gradient(ellipse at 30% 40%, #142136, #02040c)';
-            fallbackDiv.style.zIndex = '0';
-            hero.insertBefore(fallbackDiv, hero.firstChild);
-          }
-        });
-        heroVideo.play().catch(e => console.log("autoplay block handled"));
-      }
-      
-      // 4. Small intersection observer to beautify member cards on view
-      const memberCards = document.querySelectorAll('.member-card');
-      const observerOptions = { threshold: 0.1, rootMargin: "0px 0px -10px 0px" };
-      const appearObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0px)';
-            appearObserver.unobserve(entry.target);
-          }
-        });
-      }, observerOptions);
-      
-      memberCards.forEach(card => {
-        card.style.opacity = '0';
-        card.style.transform = 'translateY(20px)';
-        card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-        appearObserver.observe(card);
-      });
-      
-      // Also slight fade for overview elements
-      const fadeElems = document.querySelectorAll('.overview-text, .overview-visual');
-      const fadeObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0px)';
-            fadeObserver.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.2 });
-      fadeElems.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(28px)';
-        el.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
-        fadeObserver.observe(el);
-      });
-      
-      // ensure hero height correct after load
-      const setHeroHeight = () => {
-        const hero = document.querySelector('.hero');
-        if (hero) hero.style.minHeight = `${window.innerHeight}px`;
-      };
-      window.addEventListener('load', setHeroHeight);
-      window.addEventListener('resize', setHeroHeight);
-    })();
-  </script>
+  <!-- HOBBIES -->
+  <section class="hobbies-section" id="hobbies">
+    <div class="container">
+      <div class="section-tag">02 // hobbies & talents</div>
+
+      <h3 style="text-align:center; padding-bottom: 20px;">
+        I enjoy reading, listening to music, singing, capturing moments, and exploring the world.
+      </h3>
+
+      <div class="hobbies-grid">
+
+        <div class="hobby-card">
+          <div class="phone-video">
+            <img src="images/pia-hobbies-1.JPG" style="height:70%; width:100%; margin-top:70px;">
+          </div>
+          <div class="info">
+            <h4>📷 capturing life events</h4>
+          </div>
+        </div>
+
+        <div class="hobby-card">
+          <div class="phone-video">
+            <video autoplay loop playsinline muted>
+              <source src="videos/pia-Talent 1.mov" type="video/mp4">
+            </video>
+          </div>
+          <div class="info">
+            <h4>🎶 singing</h4>
+          </div>
+        </div>
+
+        <div class="hobby-card">
+          <div class="phone-video">
+            <img src="images/pia-hobbies-2.png" style="height:70%; width:100%; margin-top:70px;">
+          </div>
+          <div class="info">
+            <h4>📷 capturing life events</h4>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PROFESSIONAL DEVELOPMENT -->
+  <section class="dev-section" id="development">
+    <div class="container">
+      <div class="section-tag">03 // professional development</div>
+
+      <div class="slider-container">
+
+        <div class="slide-card">
+          <img src="images/Fashion Show.jpeg">
+          <div class="slide-content">
+            <span class="badge">MAY 5 2025</span>
+            <h4>The Corporate Fashion Show</h4>
+          </div>
+        </div>
+
+        <div class="slide-card">
+          <img src="images/3rd Regional .jpeg">
+          <div class="slide-content">
+            <span class="badge">April 2025</span>
+            <h4>3RD Regional Congress</h4>
+          </div>
+        </div>
+
+        <div class="slide-card">
+          <img src="images/Intern.jpeg">
+          <div class="slide-content">
+            <span class="badge">MAY 5 2025</span>
+            <h4>Inter Campus Symposium</h4>
+          </div>
+        </div>
+
+      </div> <!-- ✅ FIXED: missing closing div -->
+
+      <div class="video-desc">
+        <h3>Through these experiences</h3>
+        <p>
+          I improved my communication and interpersonal skills and realized how vital 
+          technology and communication are. These experiences helped me grow and 
+          understand future possibilities.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- GOALS -->
+  <section class="goal-section" id="goals">
+    <div class="container">
+      <div class="section-tag">04 // student goal</div>
+
+      <div class="goal-container">
+
+        <div class="goal-text">
+          <h3>My Goal in Life</h3>
+          <ul class="goal-list">
+            <li>
+              <i class="fas fa-check-circle"></i>
+              To be well-educated, financially stable, independent, and live a meaningful life. 
+              I aim to graduate, build my career, explore the world, and become the best version of myself.
+            </li>
+          </ul>
+        </div>
+
+        <div class="goal-icon">
+          <i class="fas fa-graduation-cap"></i>
+          <i class="fas fa-rocket" style="margin-left: 1rem;"></i>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- REFLECTION -->
+  <section class="reflections" id="reflections">
+    <div class="container">
+      <div class="section-tag">05 // reflections</div>
+
+      <div class="reflections-grid">
+        <div class="reflection-card">
+          <p><i class="fas fa-quote-left"></i> Reflection dito.</p>
+          <div class="ref-date">— October 2024, after AI seminar</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <div class="footer-note">
+    <i class="fas fa-heart" style="color:#5fc3ff;"></i>
+    Connected Minds — Our Life in the IT Era • personal chronicle
+  </div>
+
 </body>
 </html>
-```
